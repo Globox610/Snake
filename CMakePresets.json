@@ -1,0 +1,15 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "vs-ninja-debug",
+      "displayName": "VS Ninja Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/vs-ninja-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/vs-ninja-debug"
+      }
+    }
+  ]
+}
