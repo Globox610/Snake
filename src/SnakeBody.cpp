@@ -24,15 +24,6 @@ std::deque<sf::Vector2i>& SnakeBody::GetBodyPositions()
 }
 
 
-sf::RectangleShape SnakeBody::GetBodySprite()
-{
-	return bodyRect;
-}
-
-sf::RectangleShape SnakeBody::GetHeadSprite()
-{
-	return sf::RectangleShape();
-}
 
 
 void SnakeBody::SetDirection(Direction direction)
@@ -42,7 +33,6 @@ void SnakeBody::SetDirection(Direction direction)
 		this->direction = direction;
 
 	}
-
 
 }
 
@@ -56,15 +46,22 @@ void SnakeBody::SetGrowOnNextUpdate(bool grow)
 	this->growOnNextUpdate = grow;
 }
 
+
 void SnakeBody::MoveBy(sf::Vector2i& delta)
 {
 	const sf::Vector2i newHead = bodyPositions.front() + delta;
 	bodyPositions.push_front(newHead);
 
 	if (growOnNextUpdate)
+	{
 		growOnNextUpdate = false;
+
+	}
 	else
+	{
 		bodyPositions.pop_back();
+
+	}
 
 }
 
@@ -83,8 +80,10 @@ bool SnakeBody::CheckOpposite(Direction direction)
 	}
 }
 
-bool SnakeBody::CheckIfDead(GridData& grid)
+
+bool SnakeBody::HandleCollision(GridData& grid)
 {
+
 	if (
 		bodyPositions[0].x < 0 ||
 		bodyPositions[0].x >= grid.GetColumns() ||
@@ -104,11 +103,9 @@ bool SnakeBody::CheckIfDead(GridData& grid)
 			return true;
 		}
 	}
-	
+
 
 	return false;
-
-
 }
 
 void SnakeBody::ResetSnake()

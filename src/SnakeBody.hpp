@@ -6,7 +6,7 @@
 #include "GridData.hpp"
 #include "Food.hpp"
 
-class SnakeBody
+class SnakeBody 
 {
 public:
 	SnakeBody();
@@ -15,12 +15,10 @@ public:
 
 	//Getters n Setters
 	std::deque<sf::Vector2i>& GetBodyPositions();
-	sf::RectangleShape GetBodySprite();
-	sf::RectangleShape GetHeadSprite();
 	void SetDirection(Direction direction);
 	bool GetGrowOnNextUpdate();
 	void SetGrowOnNextUpdate(bool grow);
-	bool CheckIfDead(GridData& grid);
+	bool HandleCollision(GridData& grid);
 	void ResetSnake();
 private:
 	sf::RectangleShape bodyRect;
@@ -29,6 +27,7 @@ private:
 	bool growOnNextUpdate = false;
 	void MoveBy(sf::Vector2i& position);
 	bool CheckOpposite(Direction direction);
+
 
 
 

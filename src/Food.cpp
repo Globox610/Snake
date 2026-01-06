@@ -15,7 +15,7 @@ const sf::Vector2i& Food::GetFoodLocation() const
 	return foodCell;
 }
 
-void Food::randomizeSpawn(const GridData& grid)
+void Food::RandomizeSpawn(const GridData& grid)
 {
 	int x = std::rand() % grid.GetColumns();
 	int y = std::rand() % grid.GetRows();

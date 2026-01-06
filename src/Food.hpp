@@ -9,7 +9,7 @@ public:
 	Food();
 	~Food();
 	const sf::Vector2i& GetFoodLocation() const;
-	void randomizeSpawn(const GridData& grid);
+	void RandomizeSpawn(const GridData& grid);
 private:
 	sf::Vector2i foodCell;
 

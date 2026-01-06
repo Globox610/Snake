@@ -8,6 +8,8 @@
 #include "SnakeBody.hpp"
 #include "GridBuilder.hpp"
 #include "AssetHolder.hpp"
+#include <unordered_map>
+#include <functional>
 
 
 class PlayState : public GameState
@@ -15,21 +17,25 @@ class PlayState : public GameState
 private:
 
 	//Data structures
-	GridData grid;
-	Food food;
-	SnakeBody snake;
+	GridData* grid;
+	Food* food;
+	SnakeBody* snake;
 
 	//Time values
-	float updateTime = 2.5f;
+	float updateTime = 1.5f;
 	sf::Clock clock;
 	sf::Time elapsedTime;
 
 	//Sprites
-	GridView gridView;
-	AssetHolder assetHolder;
+	GridView* gridView;
+	AssetHolder* assetHolder;
 
 	//Toggle states
 	bool toggleState = false;
+
+	//Function and lambdas
+	std::unordered_map<sf::Keyboard::Scancode, std::function<void()>> keyBindings;
+
 
 
 	void DrawGrid(sf::RenderWindow& renderWindow);
@@ -38,6 +44,7 @@ private:
 	void ResetGame();
 public:
 	PlayState(sf::RenderWindow& window);
+	~PlayState();
 	void KeyboardEvent(sf::Keyboard::Scancode scanCode) override;
 	void MouseEvent(sf::Mouse::Button click) override;
 	void Update() override;

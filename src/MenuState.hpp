@@ -10,6 +10,7 @@ class MenuState : public GameState
 {
 private:
 	bool toggleState = false;
+	std::vector<std::unique_ptr<MenuItems>> menuItems;
 public:
 	MenuState(sf::RenderWindow& window);
 	~MenuState() = default;
@@ -19,9 +20,6 @@ public:
 	void MouseEvent(sf::Mouse::Button click) override;
 	void Render(sf::RenderWindow& window) override;
 };
-
-
-
 
 
 #endif // !MenuState_hpp
