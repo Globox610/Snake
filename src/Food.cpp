@@ -15,10 +15,31 @@ const sf::Vector2i& Food::GetFoodLocation() const
 	return foodCell;
 }
 
-void Food::RandomizeSpawn(const GridData& grid)
+void Food::RandomizeSpawn(const GridData& grid, SnakeBody& snake)
 {
-	int x = std::rand() % grid.GetColumns();
-	int y = std::rand() % grid.GetRows();
-	foodCell = sf::Vector2i(x, y);
+    sf::Vector2i candidate;
+    bool collision;
+
+    do
+    {
+        collision = false;
+
+        candidate.x = std::rand() % grid.GetColumns();
+        candidate.y = std::rand() % grid.GetRows();
+
+        auto body = snake.GetBodyPositions(); 
+        while (!body.empty())
+        {
+            if (body.front() == candidate)
+            {
+                collision = true;
+                break;
+            }
+            body.pop_front();
+        }
+
+    } while (collision);
+
+    foodCell = candidate;
 
 }

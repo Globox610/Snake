@@ -12,7 +12,7 @@ PlayState::PlayState(sf::RenderWindow& window)
 	assetHolder = new AssetHolder(grid->GetCellPitch());
 	clock.start();
 	window.setTitle("PlayState");
-	food->RandomizeSpawn(*grid);
+	food->RandomizeSpawn(*grid, *snake);
 
 
 
@@ -106,6 +106,7 @@ void PlayState::Render(sf::RenderWindow& window)
 	DrawGrid(window);
 	DrawFood(window);
 	DrawSnake(window);
+	DrawSnake(window);
 }
 
 bool PlayState::Toggle()
@@ -161,7 +162,7 @@ void PlayState::Update()
 
 		if (snake->GetBodyPositions()[0] == food->GetFoodLocation())
 		{
-			food->RandomizeSpawn(*grid);
+			food->RandomizeSpawn(*grid, *snake);
 			snake->SetGrowOnNextUpdate(true);
 		}
 

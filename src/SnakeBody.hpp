@@ -4,7 +4,6 @@
 #include <deque>
 #include "Direction.hpp"
 #include "GridData.hpp"
-#include "Food.hpp"
 
 class SnakeBody 
 {
