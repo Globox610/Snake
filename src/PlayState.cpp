@@ -1,5 +1,6 @@
 #include "PlayState.hpp"
 #include <iostream>
+#include "HighscoreManager.hpp"
 
 
 PlayState::PlayState(sf::RenderWindow& window)
@@ -18,6 +19,9 @@ PlayState::PlayState(sf::RenderWindow& window)
 
 	keyBindings[sf::Keyboard::Scancode::W] = [this]()
 		{
+			HighScoreManager score;
+			score.writeToFile("Calle", 610);
+			std::cout << score.readFromFile();
 			snake->SetDirection(Direction::South);
 		};
 
@@ -34,6 +38,7 @@ PlayState::PlayState(sf::RenderWindow& window)
 	keyBindings[sf::Keyboard::Scancode::A] = [this]()
 		{
 			snake->SetDirection(Direction::West);
+			
 		};
 }
 

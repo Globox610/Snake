@@ -15,7 +15,7 @@ FetchContent_MakeAvailable(SFML)
 add_executable(main 
 	"src/Game.cpp"
 	
-  "src/PlayState.cpp" "src/PlayState.cpp" "src/MenuState.cpp" "src/MenuItems.cpp" "src/CellTypes.hpp" "src/GridData.cpp"  "src/Food.cpp" "src/SnakeBody.cpp" "src/Direction.hpp" "src/AssetHolder.hpp")
+  "src/PlayState.cpp" "src/MenuState.cpp" "src/MenuItems.cpp" "src/CellTypes.hpp" "src/GridData.cpp"  "src/Food.cpp" "src/SnakeBody.cpp" "src/Direction.hpp" "src/AssetHolder.hpp" "src/HighscoreManager.cpp")
 target_compile_features(main PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE SFML::Graphics SFML::Audio)
 

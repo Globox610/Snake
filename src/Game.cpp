@@ -2,7 +2,7 @@
 #include "GameState.hpp"
 #include "MenuState.hpp"
 #include <iostream>
-
+#include "HighscoreManager.hpp"
 int main()
 {
     sf::RenderWindow window = sf::RenderWindow(sf::VideoMode({800u, 800u}), "The best snake of your loijf", sf::Style::Titlebar | sf::Style::Close);
@@ -15,6 +15,7 @@ int main()
     GameState* currentState = play.get();
     GameState* playState = play.get();
     GameState* menuState = menu.get();
+
 
 
     while (window.isOpen())
@@ -36,7 +37,6 @@ int main()
                 window.close();
             }           
         }
-
 
         window.clear();
         currentState->Render(window);
