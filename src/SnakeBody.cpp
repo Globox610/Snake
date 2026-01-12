@@ -9,7 +9,6 @@ SnakeBody::SnakeBody()
 	bodyRect.setOutlineThickness(2.f);
 
 	bodyPositions.push_back(sf::Vector2i(5, 5));
-	bodyPositions.push_back(sf::Vector2i(5, 6));
 	direction = Direction::North;
 	
 }

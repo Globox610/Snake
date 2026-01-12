@@ -38,6 +38,7 @@ private:
 
 
 
+
 	void DrawGrid(sf::RenderWindow& renderWindow);
 	void DrawFood(sf::RenderWindow& renderWindow);
 	void DrawSnake(sf::RenderWindow& renderWindow);
@@ -46,7 +47,7 @@ public:
 	PlayState(sf::RenderWindow& window);
 	~PlayState();
 	void KeyboardEvent(sf::Keyboard::Scancode scanCode) override;
-	void MouseEvent(sf::Mouse::Button click) override;
+	void MouseEvent(sf::Mouse::Button click, sf::Vector2i mousePosition, sf::RenderWindow& window) override;
 	void Update() override;
 	void Render(sf::RenderWindow& window) override;
 	bool Toggle() override;

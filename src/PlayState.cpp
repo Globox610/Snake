@@ -1,6 +1,5 @@
 #include "PlayState.hpp"
 #include <iostream>
-#include "HighscoreManager.hpp"
 
 
 PlayState::PlayState(sf::RenderWindow& window)
@@ -19,9 +18,6 @@ PlayState::PlayState(sf::RenderWindow& window)
 
 	keyBindings[sf::Keyboard::Scancode::W] = [this]()
 		{
-			HighScoreManager score;
-			score.writeToFile("Calle", 610);
-			std::cout << score.readFromFile();
 			snake->SetDirection(Direction::South);
 		};
 
@@ -135,16 +131,21 @@ bool PlayState::Toggle()
 void PlayState::KeyboardEvent(sf::Keyboard::Scancode scanCode)
 {
 
-	if (auto it = keyBindings.find(scanCode); it != keyBindings.end())
+	if (auto key = keyBindings.find(scanCode); key != keyBindings.end())
 	{
-		it->second();
+		key->second();
+	}
+
+	if (sf::Keyboard::Scancode::Escape == scanCode)
+	{
+		toggleState = true;
 	}
 	
 }
 
 
 
-void PlayState::MouseEvent(sf::Mouse::Button click)
+void PlayState::MouseEvent(sf::Mouse::Button click, sf::Vector2i mousePos, sf::RenderWindow& window)
 {
 	switch (click)
 	{
@@ -168,6 +169,7 @@ void PlayState::Update()
 		if (snake->GetBodyPositions()[0] == food->GetFoodLocation())
 		{
 			food->RandomizeSpawn(*grid, *snake);
+			GameState::IncreaseScore();
 			snake->SetGrowOnNextUpdate(true);
 		}
 
@@ -175,6 +177,7 @@ void PlayState::Update()
 
 		if (dead)
 		{
+			GameState::SetNewHighscore();
 			toggleState = true;
 		}
 

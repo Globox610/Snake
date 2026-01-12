@@ -2,33 +2,34 @@
 #include <fstream>
 #include <sstream>
 
-void HighScoreManager::writeToFile(const std::string& name, int score)
+void HighScoreManager::writeToFile(const std::string& time, int score)
 {
     std::fstream stream("Highscores.txt", std::ios::app);
 
     if (stream.is_open())
     {
         std::stringstream returnString;
-        returnString << name << ": " << score << "\n";
+        returnString << "Time of playing: " << time << " Score: " << score << "\n";
         stream << returnString.str();
     }
 }
 
 std::string HighScoreManager::readFromFile()
 {
-    std::fstream stream("Highscores.txt");
-    std::string returnString;
-    std::string newString;
-    if (stream.is_open())
+    std::ifstream file("Highscores.txt");
+
+    std::string line;
+    std::string full;
+    if (file.is_open())
     {
-        while (std::getline(stream, returnString))
+        while (std::getline(file, line))
         {
-            newString += returnString;
+            full += line + "\n";
         }
     }
 
 
-    return newString;
+    return full;
 
 
 }

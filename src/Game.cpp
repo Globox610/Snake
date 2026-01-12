@@ -1,8 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "GameState.hpp"
 #include "MenuState.hpp"
-#include <iostream>
-#include "HighscoreManager.hpp"
 int main()
 {
     sf::RenderWindow window = sf::RenderWindow(sf::VideoMode({800u, 800u}), "The best snake of your loijf", sf::Style::Titlebar | sf::Style::Close);
@@ -12,7 +10,7 @@ int main()
     std::unique_ptr menu = std::make_unique<MenuState>(window);
 
     //Usable ptrs
-    GameState* currentState = play.get();
+    GameState* currentState = menu.get();
     GameState* playState = play.get();
     GameState* menuState = menu.get();
 
@@ -24,12 +22,12 @@ int main()
         {
             if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>())
             {
-                currentState->KeyboardEvent(keyPressed->scancode);
+                currentState->KeyboardEvent(keyPressed->scancode);               
             }
 
             if (event->is<sf::Event::MouseButtonPressed>())
             {
-                currentState->MouseEvent(event->getIf<sf::Event::MouseButtonPressed>()->button);
+                currentState->MouseEvent(event->getIf<sf::Event::MouseButtonPressed>()->button, sf::Mouse::getPosition(window), window);
             }
 
             if (event->is<sf::Event::Closed>())
