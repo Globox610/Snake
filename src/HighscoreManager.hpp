@@ -4,6 +4,6 @@
 class HighScoreManager
 {
 public:
-    void writeToFile(const std::string& name, int score);
-    std::string readFromFile();
+    void WriteToFile(const std::string& name, int score);
+    std::string ReadFromFile();
 };

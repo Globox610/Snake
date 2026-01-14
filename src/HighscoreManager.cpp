@@ -2,7 +2,7 @@
 #include <fstream>
 #include <sstream>
 
-void HighScoreManager::writeToFile(const std::string& time, int score)
+void HighScoreManager::WriteToFile(const std::string& time, int score)
 {
     std::fstream stream("Highscores.txt", std::ios::app);
 
@@ -14,7 +14,7 @@ void HighScoreManager::writeToFile(const std::string& time, int score)
     }
 }
 
-std::string HighScoreManager::readFromFile()
+std::string HighScoreManager::ReadFromFile()
 {
     std::ifstream file("Highscores.txt");
 

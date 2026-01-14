@@ -1,8 +1,6 @@
 #ifndef Food_hpp
 #define Food_hpp
-#include "GameObject.hpp"
 #include "GridData.hpp"
-#include "CellTypes.hpp"
 #include "SnakeBody.hpp"
 
 

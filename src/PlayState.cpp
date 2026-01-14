@@ -1,5 +1,4 @@
 #include "PlayState.hpp"
-#include <iostream>
 
 
 PlayState::PlayState(sf::RenderWindow& window)
@@ -8,7 +7,7 @@ PlayState::PlayState(sf::RenderWindow& window)
 	food = new Food();
 	snake = new SnakeBody();
 
-	gridView = new GridView(grid->GetCellPitch());
+	gridView = new GridBuildingBlock(grid->GetCellPitch());
 	assetHolder = new AssetHolder(grid->GetCellPitch());
 	clock.start();
 	window.setTitle("PlayState");
@@ -91,15 +90,7 @@ void PlayState::DrawSnake(sf::RenderWindow& window)
 		isHead = false;
 	}
 
-
-
 }
-
-void PlayState::ResetGame()
-{
-
-}
-
 
 
 void PlayState::Render(sf::RenderWindow& window)

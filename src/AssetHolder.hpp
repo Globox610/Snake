@@ -20,7 +20,7 @@ struct AssetHolder
         snakeBody.setOutlineColor(sf::Color::White);
         snakeBody.setOutlineThickness(2.f);
 
-        snakeHead = snakeBody; // kopia som kan modifieras senare
+        snakeHead = snakeBody;
         snakeHead.setFillColor(sf::Color::Red);
     }
 };

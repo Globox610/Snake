@@ -2,7 +2,6 @@
 #define Grid_hpp
 #include "CellTypes.hpp"
 #include "SFML/Graphics.hpp"
-#include <vector>
 
 class GridData
 {

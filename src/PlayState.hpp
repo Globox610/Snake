@@ -6,7 +6,7 @@
 #include "GridData.hpp"
 #include "Food.hpp"
 #include "SnakeBody.hpp"
-#include "GridBuilder.hpp"
+#include "GridBuildingBlock.hpp"
 #include "AssetHolder.hpp"
 #include <unordered_map>
 #include <functional>
@@ -27,7 +27,7 @@ private:
 	sf::Time elapsedTime;
 
 	//Sprites
-	GridView* gridView;
+	GridBuildingBlock* gridView;
 	AssetHolder* assetHolder;
 
 	//Toggle states
@@ -42,7 +42,6 @@ private:
 	void DrawGrid(sf::RenderWindow& renderWindow);
 	void DrawFood(sf::RenderWindow& renderWindow);
 	void DrawSnake(sf::RenderWindow& renderWindow);
-	void ResetGame();
 public:
 	PlayState(sf::RenderWindow& window);
 	~PlayState();

@@ -2,7 +2,7 @@
 
 void GameState::SetNewHighscore()
 {
-     highscoreManager.writeToFile(GetDateTime(), currentScore);
+     highscoreManager.WriteToFile(GetDateTime(), currentScore);
 
 }
 
@@ -21,5 +21,5 @@ std::string GameState::GetDateTime()
 
 std::string GameState::GetAllHighscores()
 {
-    return highscoreManager.readFromFile();
+    return highscoreManager.ReadFromFile();
 }

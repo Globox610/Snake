@@ -24,7 +24,6 @@ public:
 	void KeyboardEvent(sf::Keyboard::Scancode scanCode) override;
 	void MouseEvent(sf::Mouse::Button click, sf::Vector2i mousePosition, sf::RenderWindow& window) override;
 	void Render(sf::RenderWindow& window) override;
-	void ShowHighscores();
 };
 
 

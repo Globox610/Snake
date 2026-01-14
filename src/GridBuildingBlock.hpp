@@ -4,11 +4,11 @@
 
 #include <SFML/Graphics.hpp>
 
-struct GridView
+struct GridBuildingBlock
 {
     sf::RectangleShape cellOutline;
 
-    GridView(float cellSize)
+    GridBuildingBlock(float cellSize)
     {
         cellOutline.setSize({ cellSize - 2.f, cellSize - 2.f });
         cellOutline.setFillColor(sf::Color::Transparent);
